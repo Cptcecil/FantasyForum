@@ -1,7 +1,16 @@
 # FantasyForum
 
-1.  This is going to be the best site ever.
+6/7/2017 - Project and Repository Setup
 
-2.  Dustan is dumb.
+Necessary Installs
+- Visual Studios 
+- Git Extensions https://github.com/gitextensions/gitextensions/releases/download/v2.49.03/GitExtensions-2.49.03-Setup.msi
 
-3.  John sucks.
+Necessary Account Creation
+- Git Hub
+
+Tasks Completed
+- Created a new Asp.net MVC Project in Visual Studios
+- Created a new Repository on GitHub
+- Added our team as contributers
+- Cloned the repo and committed and pushed our new project
