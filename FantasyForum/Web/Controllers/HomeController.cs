@@ -16,7 +16,7 @@ namespace Web.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "This is gonna be more about FF than genitals";
+            ViewBag.Message = "Forgot to make my own branch and this is the only way i know to make a change ATM.  K bye.";
 
             return View();
         }
