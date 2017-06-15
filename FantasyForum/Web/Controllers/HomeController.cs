@@ -10,7 +10,7 @@ namespace Web.Controllers
     {
         public ActionResult Index()
         {
-			ViewBag.Message = "Fuck you";
+			ViewBag.Message = "I love you, you.";
 			return View();
         }
 
