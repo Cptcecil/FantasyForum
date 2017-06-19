@@ -1,6 +1,11 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family: "", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.428571;
+    color: #333333;
+    background-color: #ffffff;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,3 +27,20 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-inverse {
+    background-color: rgba(22, 172, 10, 0.82);
+    border-color: #000000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #fffefe;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #000000;
+    font-family: "PT sans caption"
+}
+#menu a:hover {
+    color: #FFF;
+    background-color: #252525;
+    border-bottom: #ffffff solid 1.5px;
