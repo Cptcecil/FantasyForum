@@ -27,6 +27,15 @@ select,
 textarea {
     max-width: 280px;
 }
+.jumbotron {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 21px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: rgba(1, 72, 6, 0.25);
+}
 .navbar-inverse {
     background-color: rgba(22, 172, 10, 0.82);
     border-color: #000000;
@@ -34,11 +43,12 @@ textarea {
 
 .navbar-inverse .navbar-nav > li > a {
     color: #fffefe;
+    font-family: "Josefin Sans"
 }
 
 .navbar-inverse .navbar-brand {
     color: #000000;
-    font-family: "PT sans caption"
+    font-family: "Orbitron"
 }
 #menu a:hover {
     color: #FFF;
