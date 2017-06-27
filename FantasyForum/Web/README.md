@@ -1,6 +1,6 @@
 # FantasyForum
 
-6/13/2017 Discussed Rebase vs Merge
+-5/13/2017- Discussed Rebase vs Merge
 git checkout -b dev        (Create new branch)
 
 git checkout -b feature/titleChange   (Helps to sort, branch)
@@ -24,7 +24,7 @@ git rebase --continue
 git push origin :dev    (delete branch)
 git branch -d dev   (DELETE get rid of local)
 
-6/7/2017 - Project and Repository Setup
+-6/7/2017-  Project and Repository Setup
 
 Necessary Installs
 - Visual Studios 
@@ -38,3 +38,46 @@ Tasks Completed
 - Created a new Repository on GitHub
 - Added our team as contributers
 - Cloned the repo and committed and pushed our new project
+
+git checkout -b dev        (Create new branch)
+
+git checkout -b feature/titleChange   (Helps to sort, branch)
+
+git stash   (weird local save thing, to switch branches)
+
+git pop   (pull up weird save)
+
+git checkout dev    (do a pull, once both are up to date)
+git merge feature/titleChange   (didnt work)
+git mergetool   (fix your shit)
+COMMIT  git merge
+
+
+ASSIGNMENT: Make new branch, rebase, update readme with notes
+6/14/17
+PUBLISHING
+
+
+-6/22/17-
+Document Object Model DOM Element
+List of all of the elements inside the element.
+Col 4.. 3 columns    12 whole page
+Razer is a C# library
+
+When you call an ASP.net app, unless otherwise specificed, home controller gets pinged fist.
+MVC 5 empty controller
+
+Create new controller for the FrontPageLayoutController
+Views, Create new folder, FrontPageLayout
+Create new view, label as index
+Build a form, league name, tag line, 
+go to dev, pull, go to my branch, rebase dev, checkout dev then merge
+
+-6/26/17-
+
+
+*Show Later * 
+Razor render css
+Why do things get bundled into Razer?
+DNS, IP Addressess and Ports
+Controller action method description of why and how things work
