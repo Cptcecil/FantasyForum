@@ -74,9 +74,19 @@ Build a form, league name, tag line,
 go to dev, pull, go to my branch, rebase dev, checkout dev then merge
 
 -6/26/17-
+Fixed FrontPageLayout controller code and FPL folder heirarchy.
+Went over columns, size parameters and their properties.
+Action Link proper formatting
+
+*Assignment*
+Become familiar with column layout and how different screen size changes and effects columns.
+Add to FPL Form  TeamName, Tagline, Description? (text area instead of input)
+Find out how to set a character limit on regular input type text (50 characters)
 
 
 *Show Later * 
+Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
+in Layout - new { area = "" }  What does this mean?
 Razor render css
 Why do things get bundled into Razer?
 DNS, IP Addressess and Ports
