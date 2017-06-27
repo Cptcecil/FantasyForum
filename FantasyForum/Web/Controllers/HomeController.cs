@@ -2,11 +2,11 @@
 
 namespace Web.Controllers
 {
-	public class HomeController : Controller
+    public class HomeController : Controller
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Message = "Forum";
+			ViewBag.Message = "Home Page";
 			return View();
 		}
 
@@ -23,5 +23,11 @@ namespace Web.Controllers
 
 			return View();
 		}
-	}
+        public ActionResult Forum()
+        {
+            ViewBag.Message = "Forum.";
+
+            return View();
+        }
+    }
 }
