@@ -2,7 +2,7 @@
 
 namespace Web.Controllers
 {
-    public class HomeController : Controller
+	public class HomeController : Controller
 	{
 		public ActionResult Index()
 		{
@@ -12,7 +12,7 @@ namespace Web.Controllers
 
 		public ActionResult About()
 		{
-			ViewBag.Message = "Forgot to make my own branch and this is the only way i know to make a change ATM.  K bye.";
+			ViewBag.Message = "About";
 
 			return View();
 		}
