@@ -86,6 +86,12 @@ Find out how to set a character limit on regular input type text (50 characters)
 -7/20/17-
 All html is markup. Javascript etc is considered you code.
 
+7-17-17
+Create random number generator in jQuery, to generate wrestlers.
+Setup number generator, variables and loop
+
+*Assignment*
+pretty up the page, html, css, find hideous pictures for all league memebers
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
