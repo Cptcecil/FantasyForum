@@ -224,6 +224,7 @@
     <Content Include="Content\Images\jeff.JPG" />
     <Content Include="Content\Images\john.JPG" />
     <Content Include="Content\Images\luper.JPG" />
+    <Content Include="Content\Images\nomercy.png" />
     <Content Include="Content\Images\zach.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
