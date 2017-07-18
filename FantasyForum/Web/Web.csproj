@@ -212,9 +212,19 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\billy.JPG" />
+    <Content Include="Content\Images\conzo.jpg" />
+    <Content Include="Content\Images\dale.jpg" />
+    <Content Include="Content\Images\dan.JPG" />
+    <Content Include="Content\Images\dustan.jpg" />
     <Content Include="Content\Images\field.png" />
     <Content Include="Content\Images\hashmarks.jpg" />
     <Content Include="Content\Images\haskmarks2.jpg" />
+    <Content Include="Content\Images\hays.JPG" />
+    <Content Include="Content\Images\jeff.JPG" />
+    <Content Include="Content\Images\john.JPG" />
+    <Content Include="Content\Images\luper.JPG" />
+    <Content Include="Content\Images\zach.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

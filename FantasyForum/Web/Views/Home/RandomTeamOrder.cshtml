@@ -1,89 +1,188 @@
 ﻿@{
-    ViewBag.Title = "title";
+    ViewBag.Title = "WWF No Mercy Draft Pick Generator";
 }
-
-<h2>title</h2>
-<button id="generateShit" class="btn btn-default">Generate Bitch List</button>
+<div class="container">
+    <h2>WWF No Mercy Draft Pick Generator</h2>
+    <button id="generateShit" class="btn btn-default">Generate Bitch List</button>
+    <div id="listItems"></div>
+</div>
 @section scripts
 {
     <script type="text/javascript">
         $(document).ready(function() {
-            var teamList = [
-                {
-                    id: 0,
-                    name: 'Dale Marshall',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 1,
-                    name: 'Dustan Holland',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 2,
-                    name: 'Jeff Main',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 3,
-                    name: 'Michael Deconzo',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 4,
-                    name: 'Josh Luper',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 5,
-                    name: 'Dan Striebich',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 6,
-                    name: 'Zach Striebich',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 7,
-                    name: 'Hays Chestnut',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 8,
-                    name: 'John Conely',
-                    pictureUrl: '',
-                    orderNumber: 0
-                },
-                {
-                    id: 9,
-                    name: 'Billy Manuel',
-                    pictureUrl: '',
-                    orderNumber: 0
+            var getTeamList = function() {
+                return [
+                    {
+                        id: 0,
+                        name: 'Dale Marshall',
+                        pictureUrl: '../Content/Images/dale.jpg',
+                        orderNumber: 0,
+                        description: "An amazing guy who is super sexy and really smart. He is fun and whity and can some times be grumpy. He has serious mood swings but is mostly happy. If your boyfriend is a dale then you are really really really lucky because Dale's are great guys. He fights for what he wants. If dale gets mad you better whatch out because he can be dangerous. All around he is pretty great."
+                    },
+                    {
+                        id: 1,
+                        name: 'Dustan Holland',
+                        pictureUrl: '../Content/Images/dustan.jpg',
+                        orderNumber: 0,
+                        description: "One of the funniest people you will ever meet. But is always average, a Dustan usually doesn't stand out except for possibly being slightly overweight. A Dustan is extremely flirtatious and is a genleman but he also have a goofy side too. He is always up to something whether it be a practical joke or rebuilding and fixing cars. He also likes to listen to, make and rock out to music. He typically plays the drums and a little guitar too; he sometimes pretends he's Johnny Cash. Overall a Dustan is a sweet and caring guy."
+                    },
+                    {
+                        id: 2,
+                        name: 'Jeff Main',
+                        pictureUrl: '../Content/Images/jeff.JPG',
+                        orderNumber: 0,
+                        description: "Jeff is someone who you will fall deeply in love with. Mostly a great guy with an awesome personality and who only cares about you. Jeff is sweet, smart, funny, and very handsome. Just never let go of a Jeff once you have one, because it will be the worst mistake in your life. All the girls would call you bad names and try to pull you guys apart only because they know your love is better than anything they've ever had. ---unless you are an UNLUCKY Jeff. Sorry):"
+                    },
+                    {
+                        id: 3,
+                        name: 'Michael Deconzo',
+                        pictureUrl: '../Content/Images/conzo.jpg',
+                        orderNumber: 0,
+                        description: "A very cool guy who makes everyone laugh. Once you meet him, you will want to be his friend right away. He is super cute and very good-looking. He has amazing taste...in music, clothes, food, everything. Every girl secretly wishes that he could be her boyfriend...mainly because he recently broke up with his girlfriend...mainly because everyone knows that he likes commitment...mainly because he is sweet and knows how to treat a girl...mainly because however strange and wierd he may be, he's perfect. In his own little way, he is perfect."
+                    },
+                    {
+                        id: 4,
+                        name: 'Josh Luper',
+                        pictureUrl: '../Content/Images/luper.JPG',
+                        orderNumber: 0,
+                        description: "The most amazing guy in the world. Best boyfriend you can ever get. He's sweet, intelligent, sexy even though he doesnt think so. Easy to fall in love with. Adores his girlfriend and never stops telling her how much he loves her. Gave her his heart and never wants it back. He loves making people smile and laugh and is good at it because he's so funny. Enjoys comedies and is the sweetest guy you will ever meet. Nows how to have fun, and cares more about romance than sexual things. Hes just complete and utter awesomeness :)"
+                    },
+                    {
+                        id: 5,
+                        name: 'Dan Striebich',
+                        pictureUrl: '../Content/Images/dan.JPG',
+                        orderNumber: 0,
+                        description: "A MASSIVE PENIS. A PENIS LARGER THAN ANYTHING EVER SEEN. EVERYWHERE, EVERYTHING, MASSIVE.  Can also be used to describe anally pandering someone and can really mean anything you want it to.  IE: I'm going to DAN you so hard your DAN falls off and DAN will thoroughly DANicate on your DAN. MASSIVE."
+                    },
+                    {
+                        id: 6,
+                        name: 'Zach Striebich',
+                        pictureUrl: '../Content/Images/zach.JPG',
+                        orderNumber: 0,
+                        description: "A guy who is sometimes misunderstood, but wants to understand everyone else. Zach in amazingly gorgeous. He is calm, thoughtful, and irresistable. He will be an ass to the people he cares about most, and he wants to know that you'll always be there for him, because he will always be there for you. Zach is careful about committing to relationships. He doesn't like the 'obsessed' type. Zach is a family person. Zach's sex skills are highly underestimated. He can't always remember his dreams, but when he does, the dream is always about the girl he really really cares about. He just doesn't realize that he cares about her yet. "
+                    },
+                    {
+                        id: 7,
+                        name: 'Hays Chestnut',
+                        pictureUrl: '../Content/Images/hays.JPG',
+                        orderNumber: 0,
+                        description: "The retarded way of saying 'Hey' in conversation. Mostly used over the internet because the person is a complete dumbass and can't spell 'Hey', or they're just being sarcastic and making fun of those dumbasses."
+                    },
+                    {
+                        id: 8,
+                        name: 'John Conely',
+                        pictureUrl: '../Content/Images/john.JPG',
+                        orderNumber: 0,
+                        description: "A sensitive guy who has a dick large enough to wreck Godzilla's vagina. Known as a 'gift from god', women and men alike throw themselves at such a perfect creature in hopes that it will take mercy on their soul and have hot passionate rough sex with them."
+                    },
+                    {
+                        id: 9,
+                        name: 'Billy Manuel',
+                        pictureUrl: '../Content/Images/billy.JPG',
+                        orderNumber: 0,
+                        description: "Billy is a man-child, who is a muscular athletic human. Who posses many talents. He is easily amused by childish things oftenly confused with 'ADD'. He is a passionate lover and has a monster cock. Women crave his attention, while men envy him. Gay men flock to him and he disrepectfully declines with his man strength. Teachers chat about him behind his back and act as if it never occurs"
+                    }
+                ];
+            };
+
+            //returns html template for media object list item
+            var getHtmlTemplate = function(teamMember, listItemId) {
+                return '<div class="row" style="display: none;" id="listItem-' +
+                    listItemId +
+                    '"><div class="col-md-3"><a href="#"><img class="img-responsive" id="pictureUrl-' +
+                    listItemId +
+                    '" class="media-object" src="' +
+                    teamMember.pictureUrl +
+                    '" alt="..."></a></div><div class="col-md-9"><h2 id="name-' +
+                    listItemId +
+                    '" class="media-heading">' +
+                    teamMember.name +
+                    '</h2><p id="description-' +
+                    listItemId +
+                    '" >' +
+                    teamMember.description +
+                    '</p></div></div>';
+            }
+
+            var loopCount, loopCounter = 0;
+            var listLoopCount, listLoopCounter = 0;
+            var teamList = [];
+
+            //remove teammember from list
+            var removeListItem = function() {
+                teamList.splice(loopCount % teamList.length, 1);
+            }
+
+            //set the indexed list item info
+            var setListItemInfo = function (teamMember, listItemId) {
+                var listId = listItemId;
+                $("#pictureUrl-" + listItemId).attr("src", teamMember.pictureUrl);
+                $("#name-" + listItemId).text("#" + (listId+1) + ": " + teamMember.name);
+                $("#description-" + listItemId).text(teamMember.description);
+            }
+
+            //adds teammember to page ui
+            var addListItem = function(teamMember, listItemId) {
+                $("#listItems").append(getHtmlTemplate(teamMember, listItemId));
+            }
+
+            //get random number in multiples of x function
+            var getRandomNumber = function(numberOfListItems) {
+                return Math.floor((Math.random() * numberOfListItems * 10));
+            }
+
+            //main animate loop function
+            var animateLoop = function() {
+                if (loopCount !== loopCounter) {
+                    $("#listItem-" + listLoopCounter).fadeOut('fast',
+                        function() {
+                            setListItemInfo(teamList[loopCounter % teamList.length], listLoopCounter);
+                            $("#listItem-" + listLoopCounter).fadeIn('fast',
+                                function() {
+                                    animateLoop();
+                                    loopCounter++;
+                                });
+                        });
+                } else {
+                    removeListItem();
+                    listLoopCounter++;
+                    loopCounter = 0;
+                    generateList();
                 }
-            ];
+            }
+
+            //generate List Function
+            var generateList = function() {
+                if (listLoopCount !== listLoopCounter) {
+                    $("#listItem-" + listLoopCounter).slideDown('fast',
+                        function() {
+                            animateLoop(function() {
+                            });
+                        });
+                } else {
+                    $("#generateShit").prop("disabled", false);
+                }
+            };
 
             //On button click function
             $("#generateShit").on("click",
-                function() {
-                    console.log(teamList);
+                function () {
+                    $("#generateShit").prop("disabled", true);
+                    //set up variables
+                    teamList = getTeamList();
+                    loopCount = getRandomNumber(teamList.length);
+                    listLoopCount = teamList.length;
+                    loopCounter = 0;
+                    listLoopCounter = 0;
+
+                    //empty listitems div
+                    $("#listItems").empty();
+                    for (var i = 0; i < teamList.length; i++) {
+                        addListItem(teamList[0], i);
+                    }
+
+                    generateList();
                 });
-
-            //main loop function
-
-            //get random number in multiples of x function
-
-            //remove teammember from list
-
-            //adds teammember to page ui
         });
     </script>
 }
