@@ -29,5 +29,10 @@ namespace Web.Controllers
 
             return View();
         }
+
+	    public ActionResult RandomTeamOrder()
+	    {
+	        return View();
+	    }
     }
 }

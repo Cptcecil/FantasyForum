@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<h2>title</h2>
+<button id="generateShit" class="btn btn-default">Generate Bitch List</button>
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var teamList = [
+                {
+                    id: 0,
+                    name: 'Dale Marshall',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 1,
+                    name: 'Dustan Holland',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 2,
+                    name: 'Jeff Main',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 3,
+                    name: 'Michael Deconzo',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 4,
+                    name: 'Josh Luper',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 5,
+                    name: 'Dan Striebich',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 6,
+                    name: 'Zach Striebich',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 7,
+                    name: 'Hays Chestnut',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 8,
+                    name: 'John Conely',
+                    pictureUrl: '',
+                    orderNumber: 0
+                },
+                {
+                    id: 9,
+                    name: 'Billy Manuel',
+                    pictureUrl: '',
+                    orderNumber: 0
+                }
+            ];
+
+            //On button click function
+            $("#generateShit").on("click",
+                function() {
+                    console.log(teamList);
+                });
+
+            //main loop function
+
+            //get random number in multiples of x function
+
+            //remove teammember from list
+
+            //adds teammember to page ui
+        });
+    </script>
+}

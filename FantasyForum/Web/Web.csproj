@@ -274,6 +274,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\FrontPageLayout\FrontPageLayout.cshtml" />
     <Content Include="Views\Home\Forum.cshtml" />
+    <Content Include="Views\Home\RandomTeamOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
