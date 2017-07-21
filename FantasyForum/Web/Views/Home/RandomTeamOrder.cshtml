@@ -3,14 +3,15 @@
 }
 <div class="container">
     <h2>WWF No Mercy Draft Pick Generator</h2>
-    <button id="generateShit" class="btn btn-default">Generate Bitch List</button>
+    <button id="generateShit" class="btn btn-default">Generate Draft List</button>
     <div id="listItems"></div>
 </div>
 @section scripts
 {
+   
     <script type="text/javascript">
-        $(document).ready(function() {
-            var getTeamList = function() {
+        $(document).ready(function () {
+            var getTeamList = function () {
                 return [
                     {
                         id: 0,
@@ -110,9 +111,9 @@
                     }
                 ];
             };
-
+            
             //returns html template for media object list item
-            var getHtmlTemplate = function(teamMember, listItemId) {
+            var getHtmlTemplate = function (teamMember, listItemId) {
                 return '<div class="row" style="display: none;" id="listItem-' +
                     listItemId +
                     '"><div class="col-md-3"><a href="#"><img class="img-responsive" id="pictureUrl-' +
@@ -135,12 +136,12 @@
             var teamList = [];
 
             //remove teammember from list
-            var removeListItem = function() {
+            var removeListItem = function () {
                 teamList.splice((loopCounter % teamList.length) - 1, 1);
             }
 
             //set the indexed list item info
-            var setListItemInfo = function(teamMember, listItemId) {
+            var setListItemInfo = function (teamMember, listItemId) {
                 var listId = listItemId;
                 $("#pictureUrl-" + listItemId).attr("src", teamMember.pictureUrl);
                 $("#name-" + listItemId).text("#" + (listId + 1) + ": " + teamMember.name);
@@ -148,23 +149,23 @@
             }
 
             //adds teammember to page ui
-            var addListItem = function(teamMember, listItemId) {
+            var addListItem = function (teamMember, listItemId) {
                 $("#listItems").append(getHtmlTemplate(teamMember, listItemId));
             }
 
             //get random number in multiples of x function
-            var getRandomNumber = function(numberOfListItems) {
+            var getRandomNumber = function (numberOfListItems) {
                 return Math.floor((Math.random() * numberOfListItems));
             }
 
             //main animate loop function
-            var animateLoop = function() {
+            var animateLoop = function () {
                 if (loopCount >= loopCounter) {
                     $("#listItem-" + listLoopCounter).fadeOut('fast',
-                        function() {
+                        function () {
                             setListItemInfo(teamList[loopCounter % teamList.length], listLoopCounter);
                             $("#listItem-" + listLoopCounter).fadeIn('fast',
-                                function() {
+                                function () {
                                     loopCounter++;
                                     animateLoop();
                                 });
@@ -178,12 +179,12 @@
             }
 
             //generate List Function
-            var generateList = function() {
+            var generateList = function () {
                 loopCount = getRandomNumber(teamList.length);
                 if (listLoopCount !== listLoopCounter) {
                     $("#listItem-" + listLoopCounter).slideDown('slow',
-                        function() {
-                            animateLoop(function() {
+                        function () {
+                            animateLoop(function () {
                             });
                         });
                 } else {
@@ -193,7 +194,7 @@
 
             //On button click function
             $("#generateShit").on("click",
-                function() {
+                function () {
                     $("#generateShit").prop("disabled", true);
                     //set up variables
                     teamList = getTeamList();
@@ -214,8 +215,9 @@
                         addListItem(emptyListItem, i);
                     }
 
-            generateList();
+                    generateList();
+                });
         });
-    });
     </script>
 }
+    
