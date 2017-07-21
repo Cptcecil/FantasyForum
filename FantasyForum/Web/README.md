@@ -83,6 +83,9 @@ Become familiar with column layout and how different screen size changes and eff
 Add to FPL Form  TeamName, Tagline, Description? (text area instead of input)
 Find out how to set a character limit on regular input type text (50 characters)
 
+-7/20/17-
+All html is markup. Javascript etc is considered you code.
+
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
