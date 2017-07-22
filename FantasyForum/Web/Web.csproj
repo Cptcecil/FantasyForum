@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.5.1.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.5.1\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -203,10 +207,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707202020589_Initial.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707202020589_Initial.Designer.cs">
+      <DependentUpon>201707202020589_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.Designer.cs">
+      <DependentUpon>201707210044109_UserWrestlers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707210046149_TagLine.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707210046149_TagLine.Designer.cs">
+      <DependentUpon>201707210046149_TagLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.Designer.cs">
+      <DependentUpon>201707220235531_WrestlerStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\FantasyUser.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\UserWrestler.cs" />
+    <Compile Include="Models\Wrestler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -287,6 +310,8 @@
     <Content Include="Views\FrontPageLayout\FrontPageLayout.cshtml" />
     <Content Include="Views\Home\Forum.cshtml" />
     <Content Include="Views\Home\RandomTeamOrder.cshtml" />
+    <Content Include="Views\Account\EditAccount.cshtml" />
+    <Content Include="Views\Home\ChooseTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -301,6 +326,20 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707202020589_Initial.resx">
+      <DependentUpon>201707202020589_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.resx">
+      <DependentUpon>201707210044109_UserWrestlers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707210046149_TagLine.resx">
+      <DependentUpon>201707210046149_TagLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.resx">
+      <DependentUpon>201707220235531_WrestlerStats.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

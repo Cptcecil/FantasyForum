@@ -1,0 +1,52 @@
+﻿@model List<Web.Models.Wrestler>
+@{
+    
+    ViewBag.Title = "Team Selection";
+}
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var wrestlerRankCount = 1;
+
+            $("#")
+        });
+    </script>
+}
+
+<div class="container">
+    <h2>WWF No Mercy Team Selection</h2>
+    <p>
+        Please rank your favorite 12 wrestlers from this list.  You will get your top choice based on your draft pick and your ranking.  Wrestlers stats are created on a scale from 1 - 5 based on their in-game skills in the following categories.
+    </p>
+        @foreach (var wrestler in Model)
+        {
+            <div class="row">
+                <div class="col-md-1">
+                    <a href="@wrestler.PictureUrl" target="_blank">
+                        <img class="img-responsive media-object" src="@wrestler.PictureUrl" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="media-heading">@wrestler.Name</h2>
+                        </div>
+                        <div class="col-md-6">
+                            Offensive - Head: @wrestler.OffenseHead Body: @wrestler.OffenseBody Arms: @wrestler.OffenseArms Legs: @wrestler.OffenseLegs Flying: @wrestler.OffenseFlying <br/>
+                            Defensive - Head: @wrestler.DefenseHead Body: @wrestler.DefenseBody Arms: @wrestler.DefenseArms Legs: @wrestler.DefenseLegs Flying: @wrestler.DefenseFlying
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>@wrestler.Description</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-default">Rank</button>
+                </div>
+            </div>
+        }
+</div>
