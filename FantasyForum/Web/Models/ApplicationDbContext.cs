@@ -15,6 +15,8 @@ namespace Web.Models
 
         public DbSet<Wrestler> Wrestlers { get; set; }
 
+        public DbSet<UserWrestler> UserWrestlers { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder mb)
         {
             base.OnModelCreating(mb);

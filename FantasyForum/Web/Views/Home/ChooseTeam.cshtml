@@ -8,9 +8,50 @@
 {
     <script type="text/javascript">
         $(document).ready(function() {
-            var wrestlerRankCount = 1;
+            var wrestlerRank = 1;
+            var wrestlerIds = [];
 
-            $("#")
+            function rerank(rankRemoved) {
+                $('.ranked').each(function (index, element) {
+                    if (parseInt($(element).text()) > parseInt(rankRemoved))
+                        $(element).text(parseInt($(element).text()) - 1);
+                });
+            }
+
+            $('#submitWrestlers').on('click', function () {
+                if (wrestlerIds.length !== 12)
+                {
+                    alert('Please choose 12 wrestlers.');
+                    return;
+                }
+                $('#wrestlers').val(JSON.stringify(wrestlerIds));
+                $('#submit').click();
+            });
+
+            $('.rank').on('click', function () {
+                if ($(this).hasClass('ranked')) {
+                    $(this).text('Rank');
+                    $(this).removeClass('ranked');
+                    $(this).addClass('rank');
+                    for (var i = 0; i < wrestlerIds.length; i++)
+                    {
+                        if ($(this).attr('attr-id') == wrestlerIds[i]) {
+                            wrestlerIds.splice(i, 1);
+                            rerank($(this).attr('attr-id'));
+                        }
+                    }
+                    wrestlerRank--;
+                } else {
+                    if (wrestlerRank >= 13) {
+                        alert("You have already picked your max number of wrestlers.");
+                        return;
+                    }
+                    $(this).text(wrestlerRank);
+                    $(this).addClass('ranked');
+                    wrestlerRank++;
+                    wrestlerIds.push($(this).attr('attr-id'));
+                }
+            });
         });
     </script>
 }
@@ -18,8 +59,9 @@
 <div class="container">
     <h2>WWF No Mercy Team Selection</h2>
     <p>
-        Please rank your favorite 12 wrestlers from this list.  You will get your top choice based on your draft pick and your ranking.  Wrestlers stats are created on a scale from 1 - 5 based on their in-game skills in the following categories.
+        Please rank your favorite 12 wrestlers from this list.  You will get your top choice based on your draft pick and your ranking.  Wrestlers stats are created on a scale from 1 - 5 based on their in-game skills in the following categories.  If you have already submitted, your rankings will be overwritten.
     </p>
+    <button class="btn btn-primary" id="submitWrestlers">Submit Rankings</button>
         @foreach (var wrestler in Model)
         {
             <div class="row">
@@ -45,8 +87,14 @@
                     </div>
                 </div>
                 <div class="col-md-1">
-                    <button class="btn btn-default">Rank</button>
+                    <button class="btn btn-default rank" attr-id="@wrestler.Id">Rank</button>
                 </div>
             </div>
         }
+
+    @Html.BeginForm("AddWrestlers", "Home")
+    {
+    <input type="hidden" name="wrestlers" id="wrestlers" />
+    <input type="submit" id="submit" style="display: none" />
+    }
 </div>
