@@ -87,53 +87,55 @@
                 <td></td>
             </tr>
         </thead>
-        @foreach (var wrestler in Model)
-        {
-            <tr>
-                <td class="col-md-10">
-                    <h2>@wrestler.Name</h2>
-                    <a href="@wrestler.PictureUrl" target="_blank">
-                        <img class="img-responsive" src="@wrestler.PictureUrl" alt="...">
-                    </a>
-                </td>
-                <td>
-                    @wrestler.Description
-                </td>
-                <td>
-                    @wrestler.OffenseHead
-                </td>
-                <td>
-                    @wrestler.OffenseBody
-                </td>
-                <td>
-                    @wrestler.OffenseArms
-                </td>
-                <td>
-                    @wrestler.OffenseLegs
-                </td>
-                <td>
-                    @wrestler.OffenseFlying
-                </td>
-                <td>
-                    @wrestler.DefenseHead
-                </td>
-                <td>
-                    @wrestler.DefenseBody
-                </td>
-                <td>
-                    @wrestler.DefenseArms
-                </td>
-                <td>
-                    @wrestler.DefenseLegs
-                </td>
-                <td>
-                    @wrestler.DefenseFlying
-                </td>
-                <td>
-                    <button class="btn btn-default rank" attr-id="@wrestler.Id">Rank</button>
-                </td>
-            </tr>
-        }
+        <tbody>
+            @foreach (var wrestler in Model)
+            {
+                <tr>
+                    <td class="col-md-10">
+                        <h2>@wrestler.Name</h2>
+                        <a href="@wrestler.PictureUrl" target="_blank">
+                            <img class="img-responsive" src="@wrestler.PictureUrl" alt="...">
+                        </a>
+                    </td>
+                    <td>
+                        @wrestler.Description
+                    </td>
+                    <td>
+                        @wrestler.OffenseHead
+                    </td>
+                    <td>
+                        @wrestler.OffenseBody
+                    </td>
+                    <td>
+                        @wrestler.OffenseArms
+                    </td>
+                    <td>
+                        @wrestler.OffenseLegs
+                    </td>
+                    <td>
+                        @wrestler.OffenseFlying
+                    </td>
+                    <td>
+                        @wrestler.DefenseHead
+                    </td>
+                    <td>
+                        @wrestler.DefenseBody
+                    </td>
+                    <td>
+                        @wrestler.DefenseArms
+                    </td>
+                    <td>
+                        @wrestler.DefenseLegs
+                    </td>
+                    <td>
+                        @wrestler.DefenseFlying
+                    </td>
+                    <td>
+                        <button class="btn btn-default rank" attr-id="@wrestler.Id">Rank</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
     <button class="btn btn-primary pull-right" id="submitWrestlers">Submit Rankings</button>
     @using (Html.BeginForm("AddWrestlers", "Home"))
