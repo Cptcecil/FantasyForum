@@ -61,38 +61,82 @@
     <p>
         Please rank your favorite 12 wrestlers from this list.  You will get your top choice based on your draft pick and your ranking.  Wrestlers stats are created on a scale from 1 - 5 based on their in-game skills in the following categories.  If you have already submitted, your rankings will be overwritten.
     </p>
-    <button class="btn btn-primary" id="submitWrestlers">Submit Rankings</button>
+    <button class="btn btn-primary pull-right" id="submitWrestlers">Submit Rankings</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td colspan="5">Offense</td>
+                <td colspan="5">Defense</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>Head</td>
+                <td>Body</td>
+                <td>Arms</td>
+                <td>Legs</td>
+                <td>Flying</td>
+                <td>Head</td>
+                <td>Body</td>
+                <td>Arms</td>
+                <td>Legs</td>
+                <td>Flying</td>
+                <td></td>
+            </tr>
+        </thead>
         @foreach (var wrestler in Model)
         {
-            <div class="row">
-                <div class="col-md-1">
+            <tr>
+                <td class="col-md-10">
+                    <h2>@wrestler.Name</h2>
                     <a href="@wrestler.PictureUrl" target="_blank">
-                        <img class="img-responsive media-object" src="@wrestler.PictureUrl" alt="...">
+                        <img class="img-responsive" src="@wrestler.PictureUrl" alt="...">
                     </a>
-                </div>
-                <div class="col-md-10">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h2 class="media-heading">@wrestler.Name</h2>
-                        </div>
-                        <div class="col-md-6">
-                            Offensive - Head: @wrestler.OffenseHead Body: @wrestler.OffenseBody Arms: @wrestler.OffenseArms Legs: @wrestler.OffenseLegs Flying: @wrestler.OffenseFlying <br/>
-                            Defensive - Head: @wrestler.DefenseHead Body: @wrestler.DefenseBody Arms: @wrestler.DefenseArms Legs: @wrestler.DefenseLegs Flying: @wrestler.DefenseFlying
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>@wrestler.Description</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1">
+                </td>
+                <td>
+                    @wrestler.Description
+                </td>
+                <td>
+                    @wrestler.OffenseHead
+                </td>
+                <td>
+                    @wrestler.OffenseBody
+                </td>
+                <td>
+                    @wrestler.OffenseArms
+                </td>
+                <td>
+                    @wrestler.OffenseLegs
+                </td>
+                <td>
+                    @wrestler.OffenseFlying
+                </td>
+                <td>
+                    @wrestler.DefenseHead
+                </td>
+                <td>
+                    @wrestler.DefenseBody
+                </td>
+                <td>
+                    @wrestler.DefenseArms
+                </td>
+                <td>
+                    @wrestler.DefenseLegs
+                </td>
+                <td>
+                    @wrestler.DefenseFlying
+                </td>
+                <td>
                     <button class="btn btn-default rank" attr-id="@wrestler.Id">Rank</button>
-                </div>
-            </div>
+                </td>
+            </tr>
         }
-
-    @Html.BeginForm("AddWrestlers", "Home")
+    </table>
+    <button class="btn btn-primary pull-right" id="submitWrestlers">Submit Rankings</button>
+    @using (Html.BeginForm("AddWrestlers", "Home"))
     {
     <input type="hidden" name="wrestlers" id="wrestlers" />
     <input type="submit" id="submit" style="display: none" />
