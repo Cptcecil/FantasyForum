@@ -1,0 +1,44 @@
+﻿@model List<Web.Models.Wrestler>
+@{
+
+    ViewBag.Title = "My Ranking";
+}
+
+<div class="container">
+    <h2>WWF No Mercy Team Ranking</h2>
+    <p>
+        This is your ranking.  If you would like to pick again, feel free to do so @Html.ActionLink("here", "ChooseTeam").
+    </p>
+        @if (Model.Any())
+        {
+            foreach (var wrestler in Model)
+            {
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="@wrestler.PictureUrl" target="_blank">
+                        <img class="img-responsive media-object" src="@wrestler.PictureUrl" alt="...">
+                    </a>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="media-heading">@wrestler.Name</h2>
+                        </div>
+                        <div class="col-md-6">
+                            Offensive - Head: @wrestler.OffenseHead Body: @wrestler.OffenseBody Arms: @wrestler.OffenseArms Legs: @wrestler.OffenseLegs Flying: @wrestler.OffenseFlying <br/>
+                            Defensive - Head: @wrestler.DefenseHead Body: @wrestler.DefenseBody Arms: @wrestler.DefenseArms Legs: @wrestler.DefenseLegs Flying: @wrestler.DefenseFlying
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>@wrestler.Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        } else
+        {
+            <p>You have not ranked your wrestlers.  Please do so @Html.ActionLink("here", "ChooseTeam").</p>
+        }
+</div>

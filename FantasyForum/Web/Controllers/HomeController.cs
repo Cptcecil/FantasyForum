@@ -3,6 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 using HtmlAgilityPack;
 using Web.Models;
+using Newtonsoft.Json;
 
 namespace Web.Controllers
 {
@@ -18,35 +19,6 @@ namespace Web.Controllers
 		public ActionResult Index()
 		{
 			ViewBag.Message = "Home Page";
-
-		    //using (WebClient client = new WebClient())
-		    //{
-		    //    ApplicationDbContext context = new ApplicationDbContext();
-
-		    //    string htmlCode = client.DownloadString("https://www.giantbomb.com/wwf-no-mercy/3030-11394/characters/?page=2");
-		    //    var doc = new HtmlDocument();
-      //          doc.LoadHtml(htmlCode);
-		    //    var wrestler = new Wrestler();
-		    //    var imgs = doc.DocumentNode.SelectNodes("//ul[@class='editorial']/li/a/div/img");
-		    //    var names = doc.DocumentNode.SelectNodes("//ul[@class='editorial']/li/a/h3");
-		    //    var descriptions = doc.DocumentNode.SelectNodes("//ul[@class='editorial']/li/a/p");
-
-      //          for(int i = 0; i< imgs.Count(); i++)
-		    //    {
-		    //        wrestler = new Wrestler
-		    //        {
-		    //            PictureUrl = imgs[i].GetAttributeValue("src", ""),
-		    //            Name = names[i].InnerText,
-		    //            Description = descriptions[i].InnerText.Replace("\n", "").Trim()
-		    //        };
-
-		    //        context.Wrestlers.Add(wrestler);
-		    //    }
-
-		    //    context.SaveChanges();
-		    //}
-
-
 
             return View();
 		}
@@ -71,15 +43,50 @@ namespace Web.Controllers
             return View();
         }
 
-	    public ActionResult RandomTeamOrder()
+        [Authorize]
+        public ActionResult RandomTeamOrder()
 	    {
 	        return View();
-	    }
+        }
 
+        [Authorize]
+        public ActionResult MyTeam()
+        {
+            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
+            return View(user.UserWrestlers?.OrderBy(x=>x.Order).Select(x=>x.Wrestler).ToList());
+        }
+
+        [Authorize]
         public ActionResult ChooseTeam()
         {
+            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
             var wrestlers = _context.Wrestlers.ToList();
 	        return View(wrestlers);
-	    }
+        }
+
+        [Authorize]
+        public ActionResult AddWrestlers(string wrestlers)
+        {
+            var wrestlerIds = JsonConvert.DeserializeObject<int[]>(wrestlers);
+
+            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
+
+            _context.UserWrestlers.RemoveRange(_context.UserWrestlers.Where(x => x.UserId == user.Id));
+
+            UserWrestler toAddUserWrestler = new UserWrestler();
+            for (int i = 1; i <= wrestlerIds.Length; i++)
+            {
+                toAddUserWrestler = new UserWrestler
+                {
+                    UserId = user.Id,
+                    WrestlerId = wrestlerIds[i-1],
+                    Order = i
+                };
+                user.UserWrestlers.Add(toAddUserWrestler);
+            }
+            
+            _context.SaveChanges();
+            return RedirectToAction("MyTeam");
+        }
     }
 }

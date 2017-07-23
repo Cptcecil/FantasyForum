@@ -22,7 +22,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Forum", "Forum", "Home")</li>
-                    <li>@Html.ActionLink("WWF Draft Pick Generator", "RandomTeamOrder", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Draft Generator", "RandomTeamOrder", "Home")</li>
+                        <li>@Html.ActionLink("My Ranking", "MyTeam", "Home")</li>
+                        <li>@Html.ActionLink("Rank", "ChooseTeam", "Home")</li>
+                    }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

@@ -312,6 +312,7 @@
     <Content Include="Views\Home\RandomTeamOrder.cshtml" />
     <Content Include="Views\Account\EditAccount.cshtml" />
     <Content Include="Views\Home\ChooseTeam.cshtml" />
+    <Content Include="Views\Home\MyTeam.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
