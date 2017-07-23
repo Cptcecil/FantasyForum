@@ -7,7 +7,7 @@
 <div class="container">
     <h2>WWF No Mercy Team Ranking</h2>
     <p>
-        This is your ranking.  If you would like to pick again, feel free to do so @Html.ActionLink("here", "ChooseTeam").
+        This is your ranking.  If you would like to pick again, feel free to do so @Html.ActionLink("here", "ChooseTeam", "Draft").
     </p>
         @if (Model.Any())
         {
@@ -40,7 +40,7 @@
                 @foreach (var wrestler in Model)
                 {
                     <tr>
-                        <td class="col-md-10">
+                        <td width="100" height="100">
                             <h2>@wrestler.Name</h2>
                             <a href="@wrestler.PictureUrl" target="_blank">
                                 <img class="img-responsive" src="@wrestler.PictureUrl" alt="...">
@@ -85,6 +85,6 @@
             </table>
             } else
             {
-            <p>You have not ranked your wrestlers.  Please do so @Html.ActionLink("here", "ChooseTeam").</p>
+            <p>You have not ranked your wrestlers.  Please do so @Html.ActionLink("here", "ChooseTeam", "Draft").</p>
             }
 </div>

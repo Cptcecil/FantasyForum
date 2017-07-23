@@ -24,9 +24,9 @@
                     <li>@Html.ActionLink("Forum", "Forum", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Draft Generator", "RandomTeamOrder", "Home")</li>
-                        <li>@Html.ActionLink("My Ranking", "MyTeam", "Home")</li>
-                        <li>@Html.ActionLink("Rank", "ChooseTeam", "Home")</li>
+                        <li>@Html.ActionLink("Draft Generator", "RandomTeamOrder", "Draft")</li>
+                        <li>@Html.ActionLink("My Ranking", "MyTeam", "Draft")</li>
+                        <li>@Html.ActionLink("Choose Team", "ChooseTeam", "Draft")</li>
                     }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
