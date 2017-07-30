@@ -105,7 +105,6 @@ namespace Web.Controllers
         [Authorize]
         public ActionResult ChooseTeam()
         {
-            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
             var wrestlers = _context.Wrestlers.ToList();
             return View(wrestlers);
         }

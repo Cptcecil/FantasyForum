@@ -1,0 +1,9 @@
+﻿@model Web.Models.NewsItem
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>@Model.Title</h2>
+<h5>Posted By: <i>@Model.CreatedBy.Name - @Model.LastUpdated</i></h5>
+@Html.Raw(Model.Body)

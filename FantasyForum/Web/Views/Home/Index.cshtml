@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Web.Models.DTOs.NewsItemDto>
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -16,31 +17,24 @@
             </div>
         </div>
     </div>
-    </br>
-
-    <div align="center">
-        <h2>WWF No Mercy Draft Pick</h2>
-    </div>
-    <div class="row">
-        <div class="col-md-3">
-            <img class="img-responsive" src="~/Content/Images/nomercy.png" />
-        </div>
-        <div class="col-md-9">
-            <p>
-                This year we are implementing a different way to pick draft order in place of ESPN's random draft order pick.  Here are the rules:
-            </p>
-            <ul>
-                <li>@Html.ActionLink("Create an account", "Register", "Account") on our website.</li>
-                <li>Pick 10 wrestlers and rank them. To do so, go to this @Html.ActionLink("page", "ChooseTeam", "Draft").  The generator will use this list to pick your wrestler.</li>
-                <li><b>Monday, July 26th at 9PM EST **right before the Rumble** </b> Dustan will live stream our royal rumble pick order for the No Mercy royal rumble.  The generator located @Html.ActionLink("here", "RandomTeamOrder", "Draft") will be used to generate the <b>order that your wrestler enters the ring</b> as well as get your <b>highest ranked wrestler that hasn't been taken yet.</b> If you haven't selected any wrestlers yet, then you will be provided the highest ranked one out of the remaining wrestlers.</li>
-                <li>
-                    <b>Wednesday, July 26th at 9PM EST </b> Dustan will be live streaming an old N64 game called No Mercy for everyone to watch. The game has a mode that allows the player to pick 12 wrestlers to have a royal rumble.  The first out will be the last pick in the draft. The second one out will be second to last pick. Ect.
-                </li>
-                <li>
-                    <b>Saturday, August 12th at 9PM EST </b> Live Draft.
-                </li>
-                <li><iframe width="560" height="315" src="https://www.youtube.com/embed/Y4gnOvZplYk" frameborder="0" allowfullscreen></iframe></li>
-            </ul>
-        </div>
-    </div>
+    <br>
+    <h1>News</h1>
+    @foreach (var item in @Model)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                <a href="@Url.Action("Details", "News", new {id=item.Id})">
+                    <img class="media-object img-responsive" src="@item.HeadlineImgSrc" alt="...">
+                </a>
+            </div>
+            <div class="col-md-10">
+                <a href="@Url.Action("Details", "News", new {id=item.Id})">
+                    <h4 class="media-heading">@item.Title</h4>
+                </a>
+                <p>@item.Headline</p><br/>
+                @Html.ActionLink("Read More", "Details", "News", new { id = item.Id }, null)
+                <span class="pull-right"><i>Posted By @item.CreatedBy - @item.LastUpdated</i></span>
+            </div>
+        </div><br/>
+    }
 </div>

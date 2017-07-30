@@ -17,6 +17,8 @@ namespace Web.Models
 
         public DbSet<UserWrestler> UserWrestlers { get; set; }
 
+        public DbSet<NewsItem> NewsItems { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder mb)
         {
             base.OnModelCreating(mb);
@@ -27,6 +29,12 @@ namespace Web.Models
 
             userWrestler.HasRequired(x => x.User)
                 .WithMany(x => x.UserWrestlers);
+            
+            var newsItem = mb.Entity<NewsItem>();
+
+            newsItem.HasRequired(x => x.CreatedBy)
+                .WithMany()
+                .HasForeignKey(x=>x.CreatedById);
         }
 
         public static ApplicationDbContext Create()

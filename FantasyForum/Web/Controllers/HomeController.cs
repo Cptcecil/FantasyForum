@@ -2,18 +2,40 @@
 using System.Net;
 using System.Web.Mvc;
 using HtmlAgilityPack;
+using Microsoft.Ajax.Utilities;
 using Web.Models;
 using Newtonsoft.Json;
+using Web.Helpers;
+using Web.Models.DTOs;
 
 namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-		public ActionResult Index()
+
+        private readonly ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        public ActionResult Index()
 		{
 			ViewBag.Message = "Home Page";
-
-            return View();
+            
+		    var newsItems = _context.NewsItems.OrderByDescending(x => x.LastUpdated).Take(5).ToList();
+		    var newsItemDtos = newsItems.Select(x => new NewsItemDto
+		    {
+		        Id = x.Id,
+		        Title = x.Title,
+		        CreatedBy = x.CreatedBy.Name,
+		        LastUpdated = x.LastUpdated,
+		        Headline = x.Headline,
+                HeadlineImgSrc = AgilityPackHelper.GetFirstImageSrc(x.Body) != null && AgilityPackHelper.GetFirstImageSrc(x.Body) != "" ? AgilityPackHelper.GetFirstImageSrc(x.Body) : x.CreatedBy.PictureUrl
+            }).ToList();
+            
+            return View(newsItemDtos);
 		}
 
 		public ActionResult About()
