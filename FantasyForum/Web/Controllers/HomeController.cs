@@ -57,5 +57,11 @@ namespace Web.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Rules()
+        {
+            return View();
+        }
     }
 }
