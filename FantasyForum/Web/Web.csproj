@@ -210,25 +210,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\AgilityPackHelper.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707202020589_Initial.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707202020589_Initial.Designer.cs">
-      <DependentUpon>201707202020589_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.Designer.cs">
-      <DependentUpon>201707210044109_UserWrestlers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDbContext\201707210046149_TagLine.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707210046149_TagLine.Designer.cs">
-      <DependentUpon>201707210046149_TagLine.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.Designer.cs">
-      <DependentUpon>201707220235531_WrestlerStats.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ApplicationDbContext\201707301523545_NewsItems.cs" />
-    <Compile Include="Migrations\ApplicationDbContext\201707301523545_NewsItems.Designer.cs">
-      <DependentUpon>201707301523545_NewsItems.cs</DependentUpon>
+    <Compile Include="Migrations\ApplicationDbContext\201708010138436_InitialMigration.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201708010138436_InitialMigration.Designer.cs">
+      <DependentUpon>201708010138436_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -488,20 +472,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707202020589_Initial.resx">
-      <DependentUpon>201707202020589_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707210044109_UserWrestlers.resx">
-      <DependentUpon>201707210044109_UserWrestlers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707210046149_TagLine.resx">
-      <DependentUpon>201707210046149_TagLine.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707220235531_WrestlerStats.resx">
-      <DependentUpon>201707220235531_WrestlerStats.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ApplicationDbContext\201707301523545_NewsItems.resx">
-      <DependentUpon>201707301523545_NewsItems.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201708010138436_InitialMigration.resx">
+      <DependentUpon>201708010138436_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

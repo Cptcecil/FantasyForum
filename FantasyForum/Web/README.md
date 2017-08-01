@@ -21,7 +21,7 @@ checkout dev
 git rebase master
 git mergetool
 git rebase --continue
-git push origin :dev    (delete branch)
+git push origin :dev    (delete origin branch)
 git branch -d dev   (DELETE get rid of local)
 
 -6/7/2017-  Project and Repository Setup
@@ -92,6 +92,10 @@ Setup number generator, variables and loop
 
 *Assignment*
 pretty up the page, html, css, find hideous pictures for all league memebers
+
+7/31/2017
+Rebased Erniebranch, updated site name and logo
+
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"

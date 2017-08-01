@@ -7,13 +7,13 @@ namespace Web.Migrations.ApplicationDbContext
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class TagLine : IMigrationMetadata
+    public sealed partial class InitialMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TagLine));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "201707210046149_TagLine"; }
+            get { return "201708010138436_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source
