@@ -95,7 +95,7 @@ pretty up the page, html, css, find hideous pictures for all league memebers
 
 7/31/2017
 Rebased Erniebranch, updated site name and logo
-
+Added Datebase (pain in the ass)
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
