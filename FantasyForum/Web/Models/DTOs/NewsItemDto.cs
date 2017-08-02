@@ -20,5 +20,7 @@ namespace Web.Models.DTOs
         public string CreatedBy { get; set; }
 
         public string HeadlineImgSrc { get; set; }
+
+        public bool CanEdit { get; set; }
     }
 }

@@ -4,21 +4,59 @@
     ViewBag.Title = "News";
 }
 
-<h1>News</h1>
-@foreach (var item in @Model)
-{
-    <div class="row">
-        <div class="col-md-2">
-            <a href="@Url.Action("Details", "News", new {id=item.Id})">
-                <img class="media-object img-responsive" src="@item.HeadlineImgSrc" alt="...">
-            </a>
+<div class="container condensed-grid">
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <div class="row">
+                <h3>News</h3>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for..." />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button"><i class="glyphicon glyphicon-search"></i> Search</button>
+                                <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Clear</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="btn-group pull-right" role="group" aria-label="Users">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create")';return false;"><i class="glyphicon glyphicon-plus"></i> New Article</button>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-10">
-            <a href="@Url.Action("Details", "News", new {id=item.Id})">
-                <h4 class="media-heading">@item.Title</h4>
-            </a>
-            <p>@item.Headline</p><br/>
-            <span class="pull-right"><i>Posted By @item.CreatedBy - @item.LastUpdated</i></span>
+        <div class="panel-body">
+            @foreach (var item in @Model)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        <img class="media-object img-responsive" src="@item.HeadlineImgSrc" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="media-heading"><b>@item.Title</b></h4>
+                        <p>@item.Headline</p><br />
+                        <span class="pull-right"><i>Posted By @item.CreatedBy - @item.LastUpdated</i></span>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group pull-right" role="group" aria-label="NewsArticles">
+                            <button class="btn btn-primary" onclick="location.href='@Url.Action("Details", new { id=item.Id })';return false;">View</button>
+                            @if (item.CanEdit)
+                            {
+                                <button class="btn btn-primary" onclick="location.href='@Url.Action("Edit", new { id=item.Id })';return false;">Edit</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <br />
+            }
         </div>
     </div>
-}
+</div>
