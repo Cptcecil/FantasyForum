@@ -97,6 +97,12 @@ pretty up the page, html, css, find hideous pictures for all league memebers
 Rebased Erniebranch, updated site name and logo
 Added Datebase (pain in the ass)
 
+8/3/17
+Setting up the comments for NewsItems
+Build comments model and commentDTO
+set foreign keys and impliment entity framework
+
+
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
 in Layout - new { area = "" }  What does this mean?
