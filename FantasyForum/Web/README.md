@@ -101,7 +101,8 @@ Added Datebase (pain in the ass)
 Setting up the comments for NewsItems
 Build comments model and commentDTO
 set foreign keys and impliment entity framework
-
+NEED TO SETUP DTO for newsitem Index Newsitem Details
+Details needs the body, remove the img
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
