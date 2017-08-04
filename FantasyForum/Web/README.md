@@ -21,7 +21,7 @@ checkout dev
 git rebase master
 git mergetool
 git rebase --continue
-git push origin :dev    (delete branch)
+git push origin :dev    (delete origin branch)
 git branch -d dev   (DELETE get rid of local)
 
 -6/7/2017-  Project and Repository Setup
@@ -86,6 +86,23 @@ Find out how to set a character limit on regular input type text (50 characters)
 -7/20/17-
 All html is markup. Javascript etc is considered you code.
 
+7-17-17
+Create random number generator in jQuery, to generate wrestlers.
+Setup number generator, variables and loop
+
+*Assignment*
+pretty up the page, html, css, find hideous pictures for all league memebers
+
+7/31/2017
+Rebased Erniebranch, updated site name and logo
+Added Datebase (pain in the ass)
+
+8/3/17
+Setting up the comments for NewsItems
+Build comments model and commentDTO
+set foreign keys and impliment entity framework
+NEED TO SETUP DTO for newsitem Index Newsitem Details
+Details needs the body, remove the img
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
