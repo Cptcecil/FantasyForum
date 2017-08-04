@@ -38,31 +38,46 @@ namespace Web.Controllers
 
             return View(newsItemDtos);
         }
-
-        [Authorize]
-        public ActionResult MyArticles()
-        {
-            ViewBag.Message = "Home Page";
-
-            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
-            var newsItems = _context.NewsItems.Where(x=>x.CreatedById == user.Id).OrderByDescending(x => x.LastUpdated).ToList();
-            var newsItemDtos = newsItems.Select(x => new NewsItemDto
-            {
-                Id = x.Id,
-                Title = x.Title,
-                CreatedBy = x.CreatedBy.Name,
-                LastUpdated = x.LastUpdated,
-                Headline = x.Headline,
-                HeadlineImgSrc = AgilityPackHelper.GetFirstImageSrc(x.Body) != null && AgilityPackHelper.GetFirstImageSrc(x.Body) != "" ? AgilityPackHelper.GetFirstImageSrc(x.Body) : x.CreatedBy.PictureUrl
-            }).ToList();
-
-            return View(newsItemDtos);
-        }
-
+        
         public ActionResult Details(int id)
         {
+            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
             var newsItem = _context.NewsItems.Find(id);
-            return View(newsItem);
+            var newsItemDto = new NewsItemDto
+            {
+                Id = newsItem.Id,
+                Title = newsItem.Title,
+                CreatedBy = newsItem.CreatedBy.Name,
+                LastUpdated = newsItem.LastUpdated,
+                Headline = newsItem.Headline,
+                HeadlineImgSrc = "",
+                CanEdit = user != null && newsItem.CreatedBy.Id == user.Id ? true : false,
+                Comments = newsItem.Comments.Select(x=> new CommentDto
+                {
+                    Id = x.Id,
+                    CreatedBy = x.CreatedBy,
+                    CanEdit = user != null && x.CreatedBy.Id == user.Id ? true : false,
+                    Content = x.Content,
+                    LastUpdated = x.LastUpdated
+                }).ToList()
+            };
+            return View(newsItemDto);
+        }
+
+        [Authorize]
+        public ActionResult CreateComment(CommentDto comment)
+        {
+            var user = _context.Users.SingleOrDefault(x => x.Email == User.Identity.Name);
+
+            _context.Comments.Add(new Comment
+            {
+                Content = comment.Content,
+                LastUpdated = DateTime.UtcNow,
+                CreatedById = user.Id,
+                NewsItemId = comment.NewsItemId
+            });
+            _context.SaveChanges();
+            return RedirectToAction("Details", new {Id = comment.NewsItemId});
         }
 
         [Authorize]

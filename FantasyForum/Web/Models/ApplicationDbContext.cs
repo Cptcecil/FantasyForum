@@ -12,29 +12,33 @@ namespace Web.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
-        public DbSet<Wrestler> Wrestlers { get; set; }
-
-        public DbSet<UserWrestler> UserWrestlers { get; set; }
-
+        
         public DbSet<NewsItem> NewsItems { get; set; }
+
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder mb)
         {
             base.OnModelCreating(mb);
-
-            var userWrestler = mb.Entity<UserWrestler>();
-
-            userWrestler.HasRequired(x => x.Wrestler);
-
-            userWrestler.HasRequired(x => x.User)
-                .WithMany(x => x.UserWrestlers);
             
             var newsItem = mb.Entity<NewsItem>();
 
             newsItem.HasRequired(x => x.CreatedBy)
                 .WithMany()
-                .HasForeignKey(x=>x.CreatedById);
+                .HasForeignKey(x=>x.CreatedById)
+                .WillCascadeOnDelete(false);
+
+            newsItem.HasMany(x => x.Comments)
+                .WithRequired()
+                .HasForeignKey(x=>x.NewsItemId)
+                .WillCascadeOnDelete(true);
+
+            var comments = mb.Entity<Comment>();
+
+            comments.HasRequired(x => x.CreatedBy)
+                .WithMany()
+                .HasForeignKey(x => x.CreatedById)
+                .WillCascadeOnDelete(false);
         }
 
         public static ApplicationDbContext Create()

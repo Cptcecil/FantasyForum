@@ -7,6 +7,11 @@ namespace Web.Models
 {
     public class NewsItem
     {
+        public NewsItem()
+        {
+            Comments = new List<Comment>();
+        }
+
         public int Id { get; set; }
 
         public string CreatedById { get; set; }
@@ -20,5 +25,7 @@ namespace Web.Models
         public string Headline { get; set; }
 
         public virtual FantasyUser CreatedBy { get; set; }
+
+        public virtual List<Comment> Comments { get; set; }
     }
 }

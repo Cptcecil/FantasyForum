@@ -201,7 +201,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DraftController.cs" />
     <Compile Include="Controllers\FrontPageLayoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -230,8 +229,14 @@
     <Compile Include="Migrations\ApplicationDbContext\201707301523545_NewsItems.Designer.cs">
       <DependentUpon>201707301523545_NewsItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ApplicationDbContext\201708040210139_CommentsMigration.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\201708040210139_CommentsMigration.Designer.cs">
+      <DependentUpon>201708040210139_CommentsMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\DTOs\CommentDto.cs" />
     <Compile Include="Models\DTOs\NewsItemDto.cs" />
     <Compile Include="Models\FantasyUserDto.cs" />
     <Compile Include="Models\FantasyUser.cs" />
@@ -457,10 +462,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\FrontPageLayout\FrontPageLayout.cshtml" />
     <Content Include="Views\Home\Forum.cshtml" />
-    <Content Include="Views\Draft\RandomTeamOrder.cshtml" />
     <Content Include="Views\Account\EditAccount.cshtml" />
-    <Content Include="Views\Draft\ChooseTeam.cshtml" />
-    <Content Include="Views\Draft\MyTeam.cshtml" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
@@ -503,6 +505,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\ApplicationDbContext\201707301523545_NewsItems.resx">
       <DependentUpon>201707301523545_NewsItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext\201708040210139_CommentsMigration.resx">
+      <DependentUpon>201708040210139_CommentsMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

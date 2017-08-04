@@ -1,9 +1,52 @@
-﻿@model Web.Models.NewsItem
+﻿@model Web.Models.DTOs.NewsItemDto
 
 @{
     ViewBag.Title = Model.Title;
 }
-
-<h2>@Model.Title</h2>
-<h5>Posted By: <i>@Model.CreatedBy.Name - @Model.LastUpdated</i></h5>
-@Html.Raw(Model.Body)
+<div class="container condensed-grid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@Model.Title</h3>
+        </div>
+        <div class="panel-body">
+            <h5>Posted By: <i>@Model.CreatedBy - @Model.LastUpdated</i></h5>
+            @Html.Raw(Model.Body)
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Comments</h3>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm("CreateComment", "News", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) { 
+                <input type="hidden" name="NewsItemId" value="@Model.Id"/>
+                <textarea name="Content" >
+                </textarea>
+                <input class="btn btn-primary" type="submit"/>
+            }
+            @foreach (var item in @Model.Comments)
+            {
+                <div class="row">
+                    <div class="col-md-2">
+                        <img class="media-object img-responsive" src="@item.CreatedBy.PictureUrl" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="clearfix">
+                            @item.Content
+                        </div>
+                        <span class="pull-right"><i>Posted By @item.CreatedBy.Name - @item.LastUpdated</i></span>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="btn-group pull-right" role="group" aria-label="NewsArticles">
+                            @if (item.CanEdit)
+                            {
+                                <button class="btn btn-primary" onclick="location.href = '@Url.Action("Edit", new {id = item.Id})';return false;">Edit</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            }
+        </div>
+    </div>
+</div>
