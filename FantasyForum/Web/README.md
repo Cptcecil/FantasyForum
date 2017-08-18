@@ -133,6 +133,7 @@ VALUES ('Dale', 'Dale@smart.com')
 
 drop table NewStories
 ______
+Record is the full entry in a table. Column is a single box, id, name etc
 
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
