@@ -104,6 +104,36 @@ set foreign keys and impliment entity framework
 NEED TO SETUP DTO for newsitem Index Newsitem Details
 Details needs the body, remove the img
 
+8/17/17
+Databases
+_____
+Create Database TestFantasySite
+
+CREATE TABLE Users (
+ID int IDENTITY(1,1) PRIMARY KEY,
+Name NVARCHAR(20) NOT NULL,
+Email NVarChar(20) NOT NULL)
+
+CREATE TABLE NewStories (
+ID int IDENTITY(1,1) PRIMARY KEY,
+UserId INT FOREIGN KEY REFERENCES Users(ID) ON DELETE CASCADE,
+DateCreated DATETIME,
+Title NVARCHAR(20),
+Headline NVarChar(20),
+Content NVarChar(Max))
+
+INSERT INTO NewStories (UserId,DateCreated,Title,Headline,Content)
+VALUES (2, '8/17/2017', 'Dictater Loses Dick', 'Dustan going down', 'Dustan sucks in general')
+
+INSERT INTO Users (Name,Email)
+VALUES ('Dustan', 'Dustan@dumb.com')
+
+INSERT INTO Users (Name,Email)
+VALUES ('Dale', 'Dale@smart.com')
+
+drop table NewStories
+______
+
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
 in Layout - new { area = "" }  What does this mean?
