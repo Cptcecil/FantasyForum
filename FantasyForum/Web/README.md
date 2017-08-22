@@ -135,6 +135,20 @@ drop table NewStories
 ______
 Record is the full entry in a table. Column is a single box, id, name etc
 
+8/21/17
+____
+select u.Name, 
+ u.email as 'Email', 
+ n.Title as 'Title', 
+ n.Headline, 
+ n.Content as 'Body', 
+ n.DateCreated
+from users as u
+inner join newstories as n on n.UserId = u.ID
+
+Assignment - CREATE MOAR TABLES.Fantasy League, table for players info, insert their info for a couple users, foreign key in players table, references UserId in Users, add users.
+Create team table for players, create primary key, "UserID" redudant, try using just Id, assign foreign key
+
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
 in Layout - new { area = "" }  What does this mean?
