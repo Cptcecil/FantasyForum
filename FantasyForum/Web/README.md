@@ -149,6 +149,37 @@ inner join newstories as n on n.UserId = u.ID
 Assignment - CREATE MOAR TABLES.Fantasy League, table for players info, insert their info for a couple users, foreign key in players table, references UserId in Users, add users.
 Create team table for players, create primary key, "UserID" redudant, try using just Id, assign foreign key
 
+8/23/17
+_____
+ASSIGNMENT DONE BITCHES
+CREATE TABLE PlayerInfo (
+Name NVarChar(30) PRIMARY KEY NOT NULL,
+College NVarChar(30) NOT NULL,
+Height NVarChar(30) NOT NULL,
+Weight NVarChar(30) NOT NULL,
+Position NVarChar(30) NOT NULL,
+Team NVarChar(30) NOT NULL,
+OwnerID int FOREIGN KEY (OwnerID) REFERENCES Users(ID))
+
+CREATE TABLE Teams (
+Name NVarChar(20) PRIMARY KEY NOT NULL,
+Location NVarChar(20) NOT NULL,
+Player NVarChar(30) FOREIGN KEY (Player) REFERENCES PlayerInfo(Name))
+
+
+INSERT INTO PlayerInfo (Name, College, Height, Weight, Position, Team, OwnerID)
+VALUES ('OBJ', 'TheHood', '6feet', '180lbs', 'WR', 'NY Giants', 2)
+
+INSERT INTO Teams (Name, Location, Player)
+VALUES ('Giants', 'NY', 'OBJ')
+
+CREATE TABLE Users2 (
+ID int IDENTITY (1,1),
+NAME NVarChar(20) PRIMARY KEY NOT NULL,
+EMAIL NVarChar(20) NOT NULL)
+
+drop table Users2
+
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
 in Layout - new { area = "" }  What does this mean?
