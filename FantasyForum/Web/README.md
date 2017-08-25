@@ -180,6 +180,10 @@ EMAIL NVarChar(20) NOT NULL)
 
 drop table Users2
 
+___
+8/24/17
+Typing out the language vs using the UI, worked with building the table, creating primary and foreign keys. Set up a many 2 many relation tables. BookAuthors, Authors, Books
+
 *Show Later * 
 Issue with NavBar resizing, not responsive. Marshall "Right at 990 pixels, my mouse is too damn fast. Got dang screen is too big"
 in Layout - new { area = "" }  What does this mean?
